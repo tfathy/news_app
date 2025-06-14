@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/features/sport_news_screen/model/sport_news_model.dart';
-import 'package:news_app/features/sport_news_screen/widgets/sports_description.dart';
-import 'package:news_app/features/sport_news_screen/widgets/sports_dtl_btn.dart';
-import 'package:news_app/features/sport_news_screen/widgets/sports_title.dart';
+import 'package:news_app/core/model/news_model.dart';
+import 'package:news_app/core/widgets/app_divider.dart';
+import 'package:news_app/core/widgets/app_news_description.dart';
+import 'package:news_app/core/widgets/app_news_dtl_btn.dart';
+import 'package:news_app/core/widgets/app_news_title.dart';
 
-import '../../features/sport_news_screen/widgets/sports_image.dart';
+import 'app_news_image.dart';
 
 class AppListItem extends StatelessWidget {
   final Articles article;
@@ -35,15 +36,15 @@ class AppListItem extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          SportsImage(imageUrl: article.image.toString()),
+          AppNewsImage(imageUrl: article.image.toString()),
           Expanded(
             child: Column(
               children: [
-                SportsTitle(article: article),
-                Divider(color: Colors.grey, thickness: 1),
-                SportsDescription(article: article),
-                Divider(color: Colors.grey, thickness: 1),
-                SportsDtlBtn(article: article),
+                AppNewsTitle(article: article),
+                AppDivider(),
+                AppNewsDescription(article: article),
+                AppDivider(),
+                AppNewsDtlBtn(article: article),
               ],
             ),
           ),

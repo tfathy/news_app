@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/features/computer_news_screen/computer_news_screen.dart';
-import 'package:news_app/features/currency_news_screen/currency_news_screen.dart';
+
+
 import 'package:news_app/features/sport_news_screen/sport_news_ctrl.dart';
 import 'package:news_app/features/sport_news_screen/sport_news_screen.dart';
+import 'package:news_app/features/tech_news_screen/tech_news_screen.dart';
+
+import '../economy_news_screen/economy _news_screen.dart';
 
 class AppBottomNavBar extends StatefulWidget {
   AppBottomNavBar({super.key});
@@ -15,8 +18,8 @@ class _AppBottomNavBarState extends State<AppBottomNavBar> {
   var controller = SportNewsCtrl.instance;
   List<Widget> screens = [
     SportNewsScreen(),
-    ComputerNewsScreen(),
-    CurrencyNewsScreen(),
+    TechNewsScreen(),
+    EconomyNewsScreen(),
   ];
 
   int index = 0;
@@ -38,11 +41,11 @@ class _AppBottomNavBarState extends State<AppBottomNavBar> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.computer_outlined),
-            label: 'Computers',
+            label: 'Tech',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.currency_bitcoin_rounded),
-            label: 'Currencies',
+            icon: Icon(Icons.money_outlined),
+            label: 'Economy',
           ),
         ],
         selectedFontSize: 20,

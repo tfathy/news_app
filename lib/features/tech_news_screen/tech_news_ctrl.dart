@@ -3,23 +3,24 @@ import 'package:news_app/core/DioUtils.dart';
 import 'package:news_app/core/app_constants.dart';
 import 'package:news_app/core/model/news_model.dart';
 
-class SportNewsCtrl extends ChangeNotifier{
-  SportNewsCtrl._();
-  static  SportNewsCtrl instance = SportNewsCtrl._();
+class TechNewsController extends ChangeNotifier {
+  TechNewsController._();
+
+  static TechNewsController instance = TechNewsController._();
   bool isLoading = false;
   String errors = "";
-  List<Articles>  articles = [];
+  List<Articles> articles = [];
 
-  void getData() async{
+  void getData() async {
     isLoading = true;
-    errors="";
+    errors = "";
     notifyListeners();
-    try{
-      String url = AppConstants.getUrl(searchKey: "football");
+    try {
+      String url = AppConstants.getUrl(searchKey: "technology");
       final response = await DioUtils.findByKey(url: url);
       NewsModel model = NewsModel.fromJson(response.data);
       articles = model.articles;
-    }catch(e){
+    } catch (e) {
       errors = e.toString();
       print(e.toString());
       isLoading = false;

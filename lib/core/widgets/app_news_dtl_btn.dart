@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:news_app/features/sport_news_screen/model/sport_news_model.dart';
+import 'package:news_app/core/model/news_model.dart';
+import 'package:news_app/core/widgets/app_news_dtl.dart';
 
-class SportsDtlBtn extends StatelessWidget {
+class AppNewsDtlBtn extends StatelessWidget {
   final Articles article;
-  const SportsDtlBtn({super.key, required this.article});
-
+  const AppNewsDtlBtn({super.key, required this.article});
 
   @override
   Widget build(BuildContext context) {
@@ -17,15 +17,23 @@ class SportsDtlBtn extends StatelessWidget {
         children: [
           Text(vDate),
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              showAdaptiveDialog(
+                context: context,
+                builder:
+                    (context) =>
+                        Dialog.fullscreen(child: AppNewsDtl(article: article)),
+              );
+            },
             child: Text(
-              'more details',
+              'read more...',
               style: TextStyle(
                 color: Colors.blue,
                 decoration: TextDecoration.underline,
               ),
             ),
           ),
+
         ],
       ),
     );

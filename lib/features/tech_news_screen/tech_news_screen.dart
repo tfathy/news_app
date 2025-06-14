@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/core/widgets/app_exception_handler.dart';
 import 'package:news_app/core/widgets/app_list_item.dart';
-import 'package:news_app/features/sport_news_screen/sport_news_ctrl.dart';
+import 'package:news_app/features/tech_news_screen/tech_news_ctrl.dart';
 
-class SportNewsScreen extends StatefulWidget {
-  SportNewsScreen({super.key});
+class TechNewsScreen extends StatefulWidget {
+  const TechNewsScreen({super.key});
 
   @override
-  State<SportNewsScreen> createState() => _SportNewsScreenState();
+  State<TechNewsScreen> createState() => _TechNewsScreenState();
 }
 
-class _SportNewsScreenState extends State<SportNewsScreen> {
-  var controller = SportNewsCtrl.instance;
+class _TechNewsScreenState extends State<TechNewsScreen> {
+  var controller = TechNewsController.instance;
   @override
   void initState() {
     super.initState();
@@ -23,11 +23,10 @@ class _SportNewsScreenState extends State<SportNewsScreen> {
       });
     }
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    backgroundColor: Colors.black.withValues(alpha: 0.1),
+      backgroundColor: Colors.black.withValues(alpha: 0.1),
       body:
           controller.errors.isEmpty
               ? Center(
@@ -37,13 +36,13 @@ class _SportNewsScreenState extends State<SportNewsScreen> {
                         : ListView.builder(
                           itemCount: controller.articles.length,
                           itemBuilder: (context, index) {
-                            return AppListItem(article:
-                              controller.articles[index],
+                            return AppListItem(
+                              article: controller.articles[index],
                             );
                           },
                         ),
               )
-              : AppExceptionHandler(errText:controller.errors.toString()),
+              : AppExceptionHandler(errText: controller.errors.toString()),
     );
   }
 }

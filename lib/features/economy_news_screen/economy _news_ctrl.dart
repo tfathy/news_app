@@ -3,27 +3,25 @@ import 'package:news_app/core/DioUtils.dart';
 import 'package:news_app/core/app_constants.dart';
 import 'package:news_app/core/model/news_model.dart';
 
-class SportNewsCtrl extends ChangeNotifier{
-  SportNewsCtrl._();
-  static  SportNewsCtrl instance = SportNewsCtrl._();
+class EconomyNewsCtrl extends ChangeNotifier {
+  EconomyNewsCtrl._();
+  static EconomyNewsCtrl instance = EconomyNewsCtrl._();
   bool isLoading = false;
   String errors = "";
-  List<Articles>  articles = [];
-
-  void getData() async{
+  List<Articles> articles = [];
+  void getData() async {
     isLoading = true;
-    errors="";
+    errors = "";
     notifyListeners();
-    try{
-      String url = AppConstants.getUrl(searchKey: "football");
+    try {
+      String url = AppConstants.getUrl(searchKey: "economy");
       final response = await DioUtils.findByKey(url: url);
       NewsModel model = NewsModel.fromJson(response.data);
       articles = model.articles;
-    }catch(e){
+    } catch (e) {
       errors = e.toString();
       print(e.toString());
       isLoading = false;
-      notifyListeners();
     }
     isLoading = false;
     notifyListeners();

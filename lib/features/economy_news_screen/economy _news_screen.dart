@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/core/widgets/app_exception_handler.dart';
 import 'package:news_app/core/widgets/app_list_item.dart';
-import 'package:news_app/features/sport_news_screen/sport_news_ctrl.dart';
 
-class SportNewsScreen extends StatefulWidget {
-  SportNewsScreen({super.key});
+import 'economy _news_ctrl.dart';
+
+class EconomyNewsScreen extends StatefulWidget {
+  const EconomyNewsScreen({super.key});
 
   @override
-  State<SportNewsScreen> createState() => _SportNewsScreenState();
+  State<EconomyNewsScreen> createState() => _EconomyNewsScreenState();
 }
 
-class _SportNewsScreenState extends State<SportNewsScreen> {
-  var controller = SportNewsCtrl.instance;
+class _EconomyNewsScreenState extends State<EconomyNewsScreen> {
+  var controller = EconomyNewsCtrl.instance;
   @override
   void initState() {
     super.initState();
-    if(mounted){
+    if (mounted) {
       controller.getData();
       controller.addListener(() {
-        setState(() {
-        });
+        setState(() {});
       });
     }
   }
@@ -27,7 +27,7 @@ class _SportNewsScreenState extends State<SportNewsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    backgroundColor: Colors.black.withValues(alpha: 0.1),
+      backgroundColor: Colors.black.withValues(alpha: 0.1),
       body:
           controller.errors.isEmpty
               ? Center(
@@ -37,13 +37,13 @@ class _SportNewsScreenState extends State<SportNewsScreen> {
                         : ListView.builder(
                           itemCount: controller.articles.length,
                           itemBuilder: (context, index) {
-                            return AppListItem(article:
-                              controller.articles[index],
+                            return AppListItem(
+                              article: controller.articles[index],
                             );
                           },
                         ),
               )
-              : AppExceptionHandler(errText:controller.errors.toString()),
+              : AppExceptionHandler(errText: controller.errors.toString()),
     );
   }
 }

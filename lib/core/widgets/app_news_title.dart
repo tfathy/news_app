@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/features/sport_news_screen/model/sport_news_model.dart';
+import 'package:news_app/core/model/news_model.dart';
 
-class SportsTitle extends StatelessWidget {
+class AppNewsTitle extends StatelessWidget {
   final Articles article;
-  const SportsTitle({super.key, required this.article});
+  const AppNewsTitle({super.key, required this.article});
 
   @override
   Widget build(BuildContext context) {

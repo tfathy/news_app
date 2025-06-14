@@ -1,10 +1,10 @@
-class SportNewsModel {
+class NewsModel {
   String? status;
   int? totalResults;
   List<Articles> articles;
-  SportNewsModel({this.status, this.totalResults, required this.articles});
-  factory SportNewsModel.fromJson(Map<String, dynamic> json) {
-    return SportNewsModel(
+  NewsModel({this.status, this.totalResults, required this.articles});
+  factory NewsModel.fromJson(Map<String, dynamic> json) {
+    return NewsModel(
       status: json['status'] ?? "",
       totalResults: json['totalResults'] ?? 0,
       articles:
