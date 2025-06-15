@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/core/widgets/app_exception_handler.dart';
-import 'package:news_app/core/widgets/app_list_item.dart';
-import 'package:news_app/features/sport_news_screen/sport_news_ctrl.dart';
+import 'package:news_app/core/widgets/shared/app_exception_handler.dart';
+import 'package:news_app/core/widgets/shared/app_list_item.dart';
+import 'package:news_app/features/sport_news_screen/controller/sport_news_controller.dart';
 
 class SportNewsScreen extends StatefulWidget {
   SportNewsScreen({super.key});
@@ -11,7 +11,7 @@ class SportNewsScreen extends StatefulWidget {
 }
 
 class _SportNewsScreenState extends State<SportNewsScreen> {
-  var controller = SportNewsCtrl.instance;
+  var controller = SportNewsController.instance;
   @override
   void initState() {
     super.initState();

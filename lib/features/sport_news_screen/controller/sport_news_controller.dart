@@ -1,27 +1,29 @@
 import 'package:flutter/cupertino.dart';
-import 'package:news_app/core/DioUtils.dart';
-import 'package:news_app/core/app_constants.dart';
+import 'package:news_app/core/utils/DioUtils.dart';
+import 'package:news_app/core/utils/app_constants.dart';
 import 'package:news_app/core/model/news_model.dart';
 
-class EconomyNewsCtrl extends ChangeNotifier {
-  EconomyNewsCtrl._();
-  static EconomyNewsCtrl instance = EconomyNewsCtrl._();
+class SportNewsController extends ChangeNotifier{
+  SportNewsController._();
+  static  SportNewsController instance = SportNewsController._();
   bool isLoading = false;
   String errors = "";
-  List<Articles> articles = [];
-  void getData() async {
+  List<Articles>  articles = [];
+
+  void getData() async{
     isLoading = true;
-    errors = "";
+    errors="";
     notifyListeners();
-    try {
-      String url = AppConstants.getUrl(searchKey: "economy");
+    try{
+      String url = AppConstants.getUrl(searchKey: "football");
       final response = await DioUtils.findByKey(url: url);
       NewsModel model = NewsModel.fromJson(response.data);
       articles = model.articles;
-    } catch (e) {
+    }catch(e){
       errors = e.toString();
       print(e.toString());
       isLoading = false;
+      notifyListeners();
     }
     isLoading = false;
     notifyListeners();

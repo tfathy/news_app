@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/core/widgets/app_exception_handler.dart';
-import 'package:news_app/core/widgets/app_list_item.dart';
-
-import 'economy _news_ctrl.dart';
+import 'package:news_app/core/widgets/shared/app_exception_handler.dart';
+import 'package:news_app/core/widgets/shared/app_list_item.dart';
+import 'controller/economy _news_controller.dart';
 
 class EconomyNewsScreen extends StatefulWidget {
   const EconomyNewsScreen({super.key});
@@ -12,7 +11,7 @@ class EconomyNewsScreen extends StatefulWidget {
 }
 
 class _EconomyNewsScreenState extends State<EconomyNewsScreen> {
-  var controller = EconomyNewsCtrl.instance;
+  var controller = EconomyNewsController.instance;
   @override
   void initState() {
     super.initState();

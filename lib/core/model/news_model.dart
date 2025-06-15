@@ -1,4 +1,5 @@
 class NewsModel {
+  // news response model
   String? status;
   int? totalResults;
   List<Articles> articles;
@@ -21,6 +22,7 @@ class Articles {
   String? image;
   String? publishedAt;
   String? content;
+  String? url;
 
   Articles({
     this.source,
@@ -30,6 +32,7 @@ class Articles {
     this.image,
     this.publishedAt,
     this.content,
+    this.url
   });
   factory Articles.fromJson(Map<String, dynamic> json) {
     return Articles(
@@ -40,6 +43,7 @@ class Articles {
       image: json['urlToImage'] ?? "",
       publishedAt: json['publishedAt'] ?? "",
       content: json['content'] ?? "",
+      url: json['url'] ?? "",
     );
   }
 }

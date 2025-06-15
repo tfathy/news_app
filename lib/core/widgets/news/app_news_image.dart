@@ -31,7 +31,7 @@ class AppNewsImage extends StatelessWidget {
           placeholder: (context, url) => CircularProgressIndicator(),
           errorWidget:
               (context, url, error) =>
-                  Icon(Icons.error, size: 50, color: Colors.red),
+                  Icon(Icons.error, size: 50, color: Colors.grey),
         ),
       ),
     );

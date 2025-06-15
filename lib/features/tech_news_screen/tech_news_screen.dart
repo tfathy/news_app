@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/core/widgets/app_exception_handler.dart';
-import 'package:news_app/core/widgets/app_list_item.dart';
-import 'package:news_app/features/tech_news_screen/tech_news_ctrl.dart';
+import 'package:news_app/core/widgets/shared/app_exception_handler.dart';
+import 'package:news_app/core/widgets/shared/app_list_item.dart';
+import 'package:news_app/features/tech_news_screen/controller/tech_news_controller.dart';
 
 class TechNewsScreen extends StatefulWidget {
   const TechNewsScreen({super.key});

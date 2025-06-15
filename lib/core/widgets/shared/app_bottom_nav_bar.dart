@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:news_app/features/settings_screen/settings_screen.dart';
 
-
-import 'package:news_app/features/sport_news_screen/sport_news_ctrl.dart';
+import 'package:news_app/features/sport_news_screen/controller/sport_news_controller.dart';
 import 'package:news_app/features/sport_news_screen/sport_news_screen.dart';
 import 'package:news_app/features/tech_news_screen/tech_news_screen.dart';
 
-import '../economy_news_screen/economy _news_screen.dart';
+import '../../../features/economy_news_screen/economy _news_screen.dart';
 
 class AppBottomNavBar extends StatefulWidget {
   AppBottomNavBar({super.key});
@@ -15,7 +16,7 @@ class AppBottomNavBar extends StatefulWidget {
 }
 
 class _AppBottomNavBarState extends State<AppBottomNavBar> {
-  var controller = SportNewsCtrl.instance;
+  var controller = SportNewsController.instance;
   List<Widget> screens = [
     SportNewsScreen(),
     TechNewsScreen(),
@@ -27,6 +28,13 @@ class _AppBottomNavBarState extends State<AppBottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text(AppLocalizations.of(context)!.welcome),
+      actions: [
+        IconButton(onPressed: (){
+          Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => SettingsScreen(),));
+        }, icon: Icon(Icons.settings,size: 30,),),
+      ],),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: index,
         onTap: (i) {

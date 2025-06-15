@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:news_app/core/model/news_model.dart';
-import 'package:news_app/core/widgets/app_news_dtl.dart';
+import 'package:news_app/core/widgets/news/app_news_detail.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class AppNewsDtlBtn extends StatelessWidget {
+class AppNewsDetailButton extends StatelessWidget {
   final Articles article;
-  const AppNewsDtlBtn({super.key, required this.article});
+  const AppNewsDetailButton({super.key, required this.article});
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +23,11 @@ class AppNewsDtlBtn extends StatelessWidget {
                 context: context,
                 builder:
                     (context) =>
-                        Dialog.fullscreen(child: AppNewsDtl(article: article)),
+                        Dialog.fullscreen(child: AppNewsDetail(article: article)),
               );
             },
             child: Text(
-              'read more...',
+             AppLocalizations.of(context)!.read_more.toString(),
               style: TextStyle(
                 color: Colors.blue,
                 decoration: TextDecoration.underline,

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/core/model/news_model.dart';
-import 'package:news_app/core/widgets/app_divider.dart';
-import 'package:news_app/core/widgets/app_news_description.dart';
-import 'package:news_app/core/widgets/app_news_dtl_btn.dart';
-import 'package:news_app/core/widgets/app_news_title.dart';
+import 'package:news_app/core/widgets/news/app_news_image.dart';
+import 'package:news_app/core/widgets/shared/app_divider.dart';
+import 'package:news_app/core/widgets/news/app_news_description.dart';
+import 'package:news_app/core/widgets/news/app_news_detail_button.dart';
+import 'package:news_app/core/widgets/news/app_news_title.dart';
 
-import 'app_news_image.dart';
+
 
 class AppListItem extends StatelessWidget {
   final Articles article;
@@ -36,7 +37,8 @@ class AppListItem extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          AppNewsImage(imageUrl: article.image.toString()),
+          // put it in sized box
+          SizedBox(width: 150, child: AppNewsImage(imageUrl: article.image.toString())),
           Expanded(
             child: Column(
               children: [
@@ -44,7 +46,7 @@ class AppListItem extends StatelessWidget {
                 AppDivider(),
                 AppNewsDescription(article: article),
                 AppDivider(),
-                AppNewsDtlBtn(article: article),
+                AppNewsDetailButton(article: article),
               ],
             ),
           ),
